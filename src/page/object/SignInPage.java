@@ -24,9 +24,9 @@ public class SignInPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public IagreePage NavigateToIagreePage() {
+	public IAgreePage NavigateToIagreePage() {
 		ele.click();
-		return new IagreePage(driver);
+		return new IAgreePage(driver);
 
 	}
 

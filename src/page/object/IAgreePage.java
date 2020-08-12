@@ -7,14 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class IagreePage {
+public class IAgreePage {
 	private WebDriver driver;
 	@FindBy(id = "ctl00_cphStepPageData_rblAgree_1")
 	WebElement clickDisagree;
 	@FindBy(id = "ctl00_cphStepPageData_btnExit")
 	WebElement exitbtn;
 
-	public IagreePage(WebDriver _driver) {
+	public IAgreePage(WebDriver _driver) {
 		driver = _driver;
 		PageFactory.initElements(driver, this);
 	}
