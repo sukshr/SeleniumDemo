@@ -1,8 +1,8 @@
-package automatedTesting.automatedTesting;
+package test;
 
 import org.testng.annotations.Test;
 
-import PageObject.SignInPage;
+import page.object.SignInPage;
 
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.WebDriver;
@@ -11,20 +11,20 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
 
-public class TestPINPage {
+public class TestPInPageSSN {
 	WebDriver driver;
 
 	@Test
 	public void Enter_valid_data() {
 		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().pinnumber("1254").contirnuebtn();
+		getin.NavigatestoPINPage().ssnnumber("1584").contirnuebtn();
 
 	}
 
 	@Test
 	public void Enter_invalid_data() {
 		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().pinnumber("ssss").contirnuebtn();
+		getin.NavigatestoPINPage().ssnnumber("kkkk").contirnuebtn();
 
 	}
 
@@ -45,16 +45,5 @@ public class TestPINPage {
 		driver.manage().window().maximize();
 	}
 
-	@AfterMethod
-	public void afterMethod() {
-	}
-
-	@BeforeTest
-	public void beforeTest() {
-	}
-
-	@AfterTest
-	public void afterTest() {
-	}
 
 }

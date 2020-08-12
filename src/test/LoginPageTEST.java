@@ -1,11 +1,11 @@
-package automatedTesting.automatedTesting;
+package test;
 
 import org.testng.annotations.Test;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
-import PageObject.SignInPage;
+import page.object.SignInPage;
 
 import org.testng.annotations.BeforeMethod;
 

@@ -1,8 +1,8 @@
-package automatedTesting.automatedTesting;
+package test;
 
 import org.testng.annotations.Test;
 
-import PageObject.SignInPage;
+import page.object.SignInPage;
 
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.By;

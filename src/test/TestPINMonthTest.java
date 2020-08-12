@@ -1,8 +1,8 @@
-package automatedTesting.automatedTesting;
+package test;
 
 import org.testng.annotations.Test;
 
-import PageObject.SignInPage;
+import page.object.SignInPage;
 
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.WebDriver;
@@ -11,27 +11,27 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
 
-public class TestPInPageSSN {
+public class TestPINMonthTest {
 	WebDriver driver;
 
 	@Test
 	public void Enter_valid_data() {
 		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().ssnnumber("1584").contirnuebtn();
+		getin.NavigatestoPINPage().monthdropdown().contirnuebtn();
 
 	}
 
 	@Test
 	public void Enter_invalid_data() {
 		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().ssnnumber("kkkk").contirnuebtn();
+		getin.NavigatestoPINPage().yeardropdown().contirnuebtn();
 
 	}
 
 	@Test
 	public void Enter_null_data() {
 		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().contirnuebtn();
+		getin.NavigatestoPINPage().datedropdown().contirnuebtn();
 
 	}
 
@@ -43,6 +43,7 @@ public class TestPInPageSSN {
 
 		driver.get("https://www.apply.okhca.org/Site/UserAccountLogin.aspx");
 		driver.manage().window().maximize();
+	
 	}
 
 
