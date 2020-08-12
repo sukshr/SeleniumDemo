@@ -34,6 +34,8 @@ WebElement authorizedperson;
 @FindBy(id="ctl00_cphStepPageData_btnNext")
 WebElement nextbtn;
 
+
+
 public PeopleandContact(WebDriver _driver) throws InterruptedException{
 	driver = _driver;
 	Thread.sleep(3000);

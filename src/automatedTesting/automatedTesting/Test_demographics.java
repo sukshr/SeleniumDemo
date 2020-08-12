@@ -6,11 +6,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
 public class Test_demographics {
 	WebDriver driver;
+	
 
 	@BeforeMethod
 	public void beforeMethod() {
@@ -31,13 +33,13 @@ public class Test_demographics {
 
 		// Act
 		SignInPage signinPage = new SignInPage(driver);
-		signinPage.NavigateToIagreePage().ClickToAgree().SetFName("gillyGamerOnFaderHooJosie").NextBtn();
+		String validationMsg = signinPage.NavigateToIagreePage().ClickToAgree().SetFName("gillyGamerOnFaderHooJosie")
+				.NexBtnHasError().GetValidationText();
 
 		// Assert
-		WebElement validationtext = driver.findElement(By.id("ctl00_pnlValidatorSummary"));
-		boolean validation = validationtext.getText().contains("Last Name is required");
+		boolean validation = validationMsg.contains("Last Name is required");
 		Assert.assertTrue(validation);
-		
+
 	}
 
 	@Test
@@ -46,29 +48,29 @@ public class Test_demographics {
 
 		// Act
 		SignInPage signinPage = new SignInPage(driver);
-		signinPage.NavigateToIagreePage().ClickToAgree().SetFName("1245896325").NextBtn();
+		String validationMsg = signinPage.NavigateToIagreePage().ClickToAgree().SetFName("1245896325").NexBtnHasError().GetValidationText();
 
 		// Assert
-		WebElement validationtext = driver.findElement(By.id("ctl00_pnlValidatorSummary"));
-		boolean validation = validationtext.getText()
-				.toLowerCase().contains("First Name must only contain letters.".toLowerCase());
+
+		boolean validation = validationMsg.contains("First Name must only contain letters.");
 		Assert.assertTrue(validation);
 		;
 	}
+
 	@Test
 	public void Entering_nothing_In_firstName_field() throws InterruptedException {
 		// Arrange
 
 		// Act
 		SignInPage signinPage = new SignInPage(driver);
-		signinPage.NavigateToIagreePage().ClickToAgree().NextBtn();
+		String validationMsg = signinPage.NavigateToIagreePage().ClickToAgree().NexBtnHasError().GetValidationText();
 
 		// Assert
-		WebElement validationtext = driver.findElement(By.id("ctl00_pnlValidatorSummary"));
-		boolean validation = validationtext.getText().contains("First Name is required");
+		
+		boolean validation = validationMsg.contains("First Name is required");
 		Assert.assertTrue(validation);
 		;
-	
+
 		driver.quit();
 	}
 
