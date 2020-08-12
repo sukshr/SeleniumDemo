@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Parameterization">
+  <parameter name="username" value="happysingh"></parameter>
+  <parameter name="password" value="TestSingh_14!"></parameter>
+    <classes>
+      <class name="automatedTesting.automatedTesting.LoginPageTEST"/>
+    </classes>
+  </test> <!-- Parameterization -->
+</suite> <!-- Suite -->
