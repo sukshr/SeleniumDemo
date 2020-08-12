@@ -2,7 +2,7 @@ package automatedTesting.automatedTesting;
 
 import org.testng.annotations.Test;
 
-import automatedTesting.automatedTesting.SignInPage;
+import PageObject.SignInPage;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;

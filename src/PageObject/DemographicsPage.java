@@ -1,4 +1,4 @@
-package automatedTesting.automatedTesting;
+package PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -62,7 +62,7 @@ public class DemographicsPage {
 		LastName.sendKeys(lName);
 		return this;
 	}
-
+//TODO: make all the hardcoded values parameterized
 	public DemographicsPage SetSuffix() {
 		new Select(dropdown).selectByVisibleText("V");
 		return this;
@@ -113,7 +113,7 @@ public class DemographicsPage {
 		return this;
 	}
 
-	public DemographicsPage SetDcoumentationType() {
+	public DemographicsPage SetDcoumentationTypeAsUSCitizen() {
 		new Select(documentationtype).selectByVisibleText("U.S. Birth Certificate (Original or Certified Copy)");
 		return this;
 	}

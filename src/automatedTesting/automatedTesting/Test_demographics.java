@@ -1,7 +1,11 @@
 package automatedTesting.automatedTesting;
 
 import org.testng.annotations.Test;
+
+import PageObject.SignInPage;
+
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,6 +31,29 @@ public class Test_demographics {
 	/*
 	 * @AfterMethod public void afterMethod() { driver.quit(); }
 	 */
+	@DataProvider(name = "invalidFirstNameProvider")
+    public Object[][] dataProviderMethod() {
+        return new Object[][] { { "1245896325","First Name must only contain letters" }, { "Gilly@","First Name must only contain letters" }
+        , { "John.Doe","First Name must only contain letters" }, { "JohnDoe25","First Name must only contain letters" } };
+    }
+ 
+	@Test(dataProvider = "invalidFirstNameProvider")
+	public void First_Name_Should_Only_Have_Letters(String firstName, String expectedError) throws InterruptedException {
+		// Arrange
+
+		// Act
+		SignInPage signinPage = new SignInPage(driver);
+		String validationMsg = signinPage.NavigateToIagreePage().ClickToAgree().SetFName(firstName).NexBtnHasError().GetValidationText();
+
+		// Assert
+
+		boolean validation = validationMsg.contains(expectedError);
+		Assert.assertTrue(validation);
+		;
+	}
+
+   
+	
 	@Test
 	public void Enters_Valid_Name_In_FirstName_Field() throws InterruptedException {
 		// Arrange
@@ -70,7 +97,7 @@ public class Test_demographics {
 		boolean validation = validationMsg.contains("First Name is required");
 		Assert.assertTrue(validation);
 		;
-
+//ToDO: should be om after test
 		driver.quit();
 	}
 

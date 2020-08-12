@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
+import PageObject.SignInPage;
+
 import org.testng.annotations.BeforeMethod;
 
 import static org.testng.Assert.assertEquals;
