@@ -17,7 +17,7 @@ public class TestPINMonthTest {
 	@Test
 	public void enterValidData() {
 		SignInPage getin = new SignInPage(driver);
-		getin.navigatesToPINPage().monthDropdown("June").contirnuebtn();
+		getin.navigatesToPINPage().setMonthDropdown("June").continuebtn();
 
 	}
 
@@ -31,7 +31,7 @@ public class TestPINMonthTest {
 	@Test
 	public void enterNullData() {
 		SignInPage getin = new SignInPage(driver);
-		getin.navigatesToPINPage().dateDropdown("14").contirnuebtn();
+		getin.navigatesToPINPage().setDateDropdown("14").continuebtn();
 
 	}
 

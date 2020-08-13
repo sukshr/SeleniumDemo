@@ -33,7 +33,7 @@ public class TestLoginPage {
 
 	public void enterValidUserNamePassword(String username, String password) throws InterruptedException {
 		SignInPage signinPage = new SignInPage(driver);
-		signinPage.enterUsername(username).enterPassword(password).clickTOLoGON();
+		signinPage.setUsername(username).setPassword(password).clickToLogon();
 
 	}
 
