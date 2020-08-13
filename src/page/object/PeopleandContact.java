@@ -58,8 +58,8 @@ public PeopleandContact setCity(String city)  {
 	cityaddress.sendKeys(city);
 	return this;
 }
-public PeopleandContact stateDropdown(String state)  {
-	 new Select(state).selectByVisibleText(state);
+public PeopleandContact stateDropdown(String statename)  {
+	 new Select(state).selectByVisibleText(statename);
 
 	return this;
 }
