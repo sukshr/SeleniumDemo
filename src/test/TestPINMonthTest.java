@@ -21,8 +21,7 @@ public class TestPINMonthTest {
 
 	}
 
-	@Test
-	public void enterInvalidData() {
+	public void enterInvaliDdata() {
 		SignInPage getin = new SignInPage(driver);
 		getin.navigatesToPINPage().yearDropdown("1990").continuebtn();
 
