@@ -43,58 +43,58 @@ public PeopleandContact(WebDriver _driver) throws InterruptedException{
 }
 
 //TODO: ALl methods name has to be pasclasCase
-public PeopleandContact firstaddressline(String fline) throws InterruptedException {
+public PeopleandContact firstaddressline(String addressLine) throws InterruptedException {
 	Thread.sleep(5000);
-	address.sendKeys(fline);
+	address.sendKeys(addressLine);
 	return this;
 }
-public PeopleandContact seconeaddressline(String Sline)  {
+public PeopleandContact seconeaddressline(String addressLine)  {
 	
-	secondaddress.sendKeys(Sline);
+	secondaddress.sendKeys(addressLine);
 	return this;
 
 }
-public PeopleandContact City(String city)  {
+public PeopleandContact setCity(String city)  {
 	cityaddress.sendKeys(city);
 	return this;
 }
-public PeopleandContact Statedropdown()  {
-	 new Select(state).selectByVisibleText("Texas");
+public PeopleandContact stateDropdown(String state)  {
+	 new Select(state).selectByVisibleText(state);
 
 	return this;
 }
-public PeopleandContact Zipcode(String zCode)  {
-	codezip.sendKeys(zCode);
+public PeopleandContact setZipcode(String zipCode)  {
+	codezip.sendKeys(zipCode);
 	return this;
 }
-public PeopleandContact mailingaddress()  {
+public PeopleandContact setMailingaddress()  {
 	mailingadd.click();
 	return this;
 }
-public PeopleandContact language(String language)  {
+public PeopleandContact setLanguage(String language)  {
 	 new Select(householdlanguage).selectByVisibleText(language);
 
 	return this;
 }
-public PeopleandContact writtencommunication(String spokenLanguage)  {
+public PeopleandContact setWrittenCommunication(String spokenLanguage)  {
 	 new Select(communication).selectByVisibleText(spokenLanguage);
 
 	return this;
 }
-public PeopleandContact communicationchoice()  {
+public PeopleandContact setCommunicationchoice()  {
 	 new Select(electroniccommunication).selectByVisibleText("Letter");
 
 	return this;
 }
-public PeopleandContact emailaddress(String email)  {
+public PeopleandContact setEmailaddress(String email)  {
 	electronicmail.sendKeys(email);
 	return this;
 }
-public PeopleandContact authorization()  {
+public PeopleandContact setAuthorization()  {
 	authorizedperson.click();
 	return this;
 }
-public PeopleandContact nextbutton()  {
+public PeopleandContact nextButton()  {
 	nextbtn.click();
 	return this;
 }

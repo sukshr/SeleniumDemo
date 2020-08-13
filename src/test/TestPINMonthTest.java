@@ -15,21 +15,21 @@ public class TestPINMonthTest {
 	WebDriver driver;
 
 	@Test
-	public void Enter_valid_data() {
+	public void enterValidData() {
 		SignInPage getin = new SignInPage(driver);
 		getin.navigatesToPINPage().monthDropdown("June").contirnuebtn();
 
 	}
 
 	@Test
-	public void Enter_invalid_data() {
+	public void enterInvalidData() {
 		SignInPage getin = new SignInPage(driver);
-		getin.navigatesToPINPage().yearDropdown("1990").contirnuebtn();
+		getin.navigatesToPINPage().yearDropdown("1990").continuebtn();
 
 	}
 
 	@Test
-	public void Enter_null_data() {
+	public void enterNullData() {
 		SignInPage getin = new SignInPage(driver);
 		getin.navigatesToPINPage().dateDropdown("14").contirnuebtn();
 
@@ -37,14 +37,16 @@ public class TestPINMonthTest {
 
 	@BeforeMethod
 	public void beforeMethod() {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\\\Users\\\\HP\\\\Desktop\\\\selenium softwares\\\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "selenium\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		driver.get("https://www.apply.okhca.org/Site/UserAccountLogin.aspx");
 		driver.manage().window().maximize();
-	
+
 	}
 
-
+	@AfterMethod
+	public void afterMethod() {
+		driver.quit();
+	}
 }

@@ -27,21 +27,19 @@ public class TestLoginPage {
 	@FindBy(id = "ctl00_cphStepPageData_lblRegistrationCOde")
 	WebElement registrationId;
 
-	@org.testng.annotations.Parameters ({"username", "password"})
-	
+	@org.testng.annotations.Parameters({ "username", "password" })
+
 	@Test
 
 	public void enterValidUserNamePassword(String username, String password) throws InterruptedException {
 		SignInPage signinPage = new SignInPage(driver);
 		signinPage.enterUsername(username).enterPassword(password).clickTOLoGON();
 
-		
 	}
 
 	@BeforeMethod
 	public void beforeMethod() {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\\\Users\\\\HP\\\\Desktop\\\\selenium softwares\\\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "selenium\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		driver.get("https://www.apply.okhca.org/Site/UserAccountLogin.aspx");
@@ -52,7 +50,5 @@ public class TestLoginPage {
 	public void afterMethod() {
 		driver.quit();
 	}
-
-	
 
 }

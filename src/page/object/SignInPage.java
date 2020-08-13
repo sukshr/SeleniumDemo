@@ -36,16 +36,16 @@ public class SignInPage {
 		return new PINPage(driver);
 	}
 
-	public SignInPage enterUsername(String name) {
+	public SignInPage setUsername(String name) {
 		username.sendKeys(name);
 		return this;
 	}
 
-	public SignInPage enterPassword(String pass) {
+	public SignInPage setPassword(String pass) {
 		password.sendKeys(pass);
 		return this;
 	}
-	public void clickTOLoGON() throws InterruptedException {
+	public void clickToLogon() throws InterruptedException {
 		Thread.sleep(5000);
 		logOnBtn.click();
 	}

@@ -22,7 +22,7 @@ public class PINPage {
 	@FindBy(id = "ctl00_cphStepPageData_lblContinue")
 	WebElement Continue;
 	@FindBy(id = "ctl00_pnlValidatorSummary")
-	WebElement validationsummary; 
+	WebElement validationsummary;
 
 	public PINPage(WebDriver _driver) {
 		driver = _driver;
@@ -38,15 +38,14 @@ public class PINPage {
 		SSNNumber.sendKeys(nbr);
 		return this;
 	}
-	
 
-	public PINPage monthDropdown(String month) {
+	public PINPage setMonthDropdown(String month) {
 		Select dropdown = new Select(Month);
 		dropdown.selectByVisibleText(month);
 		return this;
 	}
 
-	public PINPage dateDropdown(String date) {
+	public PINPage setDateDropdown(String date) {
 		Select ddropdown = new Select(Date);
 		ddropdown.selectByVisibleText(date);
 		return this;
@@ -58,15 +57,16 @@ public class PINPage {
 		return this;
 	}
 
-	public void contirnuebtn() {
+	public void continuebtn() {
 		Continue.click();
-	
 
 	}
+
 	public PINPage continuebtnHasError() {
 		Continue.click();
 		return this;
 	}
+
 	public String getValidationErrorText() {
 		return validationsummary.getText();
 	}

@@ -62,7 +62,7 @@ public class DemographicsPage {
 		lastName.sendKeys(lName);
 		return this;
 	}
-//TODO: make all the hardcoded values parameterized
+
 	public DemographicsPage setSuffix(String value) {
 		new Select(dropDown).selectByVisibleText(value);
 		return this;

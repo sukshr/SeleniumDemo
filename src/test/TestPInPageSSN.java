@@ -16,66 +16,40 @@ import org.testng.annotations.AfterTest;
 
 public class TestPInPageSSN {
 	WebDriver driver;
-	
+
 	@DataProvider(name = "SSNNumberProvider")
-    public Object[][] dataProviderMethod() {
-        return new Object[][] { { "2548","PIN is required" } };
-    }
- 
+	public Object[][] dataProviderMethod() {
+		return new Object[][] { { "2548", "PIN is required" } };
+	}
+
 	@Test(dataProvider = "SSNNumberProvider")
-	public void Enters_SSN_Number(String SSNnumber, String expectedMessage) throws InterruptedException {
+	public void entersSSNNumber(String SSNnumber, String expectedMessage) throws InterruptedException {
 		// Arrange
 
 		// Act
 		SignInPage getin = new SignInPage(driver);
-		String validationErrorMsgs = getin.navigatesToPINPage().ssnNumber(SSNnumber).continuebtnHasError().getValidationErrorText();
+		String validationErrorMsgs = getin.navigatesToPINPage().ssnNumber(SSNnumber).continuebtnHasError()
+				.getValidationErrorText();
 		// Assert
 
 		boolean validation = validationErrorMsgs.contains(expectedMessage);
 		Assert.assertTrue(validation);
 		System.out.println("the error message is " + validationErrorMsgs);
-		;
-	}
-	
-	
-	
-	
-	/*
-	
-	@Test
-	public void Enter_valid_data() {
-		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().ssnnumber("1584").contirnuebtn();
 
 	}
-
-	@Test
-	public void Enter_invalid_data() {
-		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().ssnnumber("kkkk").contirnuebtn();
-
-	}
-
-	@Test
-	public void Enter_null_data() {
-		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().contirnuebtn();
-
-	}
-	*/
 
 	@BeforeMethod
 	public void beforeMethod() {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\\\Users\\\\HP\\\\Desktop\\\\selenium softwares\\\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "selenium\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		driver.get("https://www.apply.okhca.org/Site/UserAccountLogin.aspx");
 		driver.manage().window().maximize();
 	}
-@AfterMethod
-public void afterMethod () {
-	driver.quit();
-}
+
+	@AfterMethod
+	public void afterMethod() {
+		driver.quit();
+	}
 
 }

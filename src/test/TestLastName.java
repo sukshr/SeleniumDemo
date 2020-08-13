@@ -20,8 +20,7 @@ public class TestLastName {
 
 	@BeforeMethod
 	public void beforeMethod() {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\\\Users\\\\HP\\\\Desktop\\\\selenium softwares\\\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "selenium\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		driver.get("https://www.apply.okhca.org/Site/UserAccountLogin.aspx");
@@ -36,7 +35,7 @@ public class TestLastName {
 	}
 
 	@Test(dataProvider = "validNameProvider")
-	public void Passes_valid_name(String Lastname, String expectedError) throws InterruptedException {
+	public void passesValidName(String Lastname, String expectedError) throws InterruptedException {
 		SignInPage signinPage = new SignInPage(driver);
 		String validationMsg = signinPage.navigateToIagreePage().clickToAgree().setFName(Lastname).nexBtnHasError()
 				.getValidationText();
@@ -46,23 +45,25 @@ public class TestLastName {
 		Assert.assertTrue(validation);
 
 	}
+
 	@DataProvider(name = "invalidlastNameProvider")
 	public Object[][] invalidDataProviderMethod() {
 		return new Object[][] { { "$$$$", "Last Name must only contain letters" },
 				{ "12.778", "Last Name must only contain letters" }, { " ", "First Name is required" },
 				{ "K.lops", "First Name is required" } };
 	}
+
 	@Test(dataProvider = "invalidlastNameProvider")
-	public void Passes_invalid_lastname(String Lastname, String expectedMsg) throws InterruptedException {
+	public void passesInvalidLastname(String Lastname, String expectedMsg) throws InterruptedException {
 		SignInPage signinPage = new SignInPage(driver);
-		String validationErrorMsg = signinPage.navigateToIagreePage().clickToAgree().setFName(Lastname).nexBtnHasError().getValidationText();
+		String validationErrorMsg = signinPage.navigateToIagreePage().clickToAgree().setFName(Lastname).nexBtnHasError()
+				.getValidationText();
 
 		// Assert
 		boolean validation = validationErrorMsg.contains(expectedMsg);
 		Assert.assertTrue(validation);
 	}
 
-	
 	@AfterMethod
 	public void afterMethod() {
 		driver.quit();

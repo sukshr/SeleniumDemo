@@ -19,8 +19,7 @@ public class TestIAgree {
 
 	@BeforeMethod
 	public void beforeMethod() {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\\\Users\\\\HP\\\\Desktop\\\\selenium softwares\\\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "selenium\\chromedriver.exe");
 		driver = new ChromeDriver();
 
 		driver.get("https://www.apply.okhca.org/Site/UserAccountLogin.aspx");
@@ -62,19 +61,5 @@ public class TestIAgree {
 		Assert.assertEquals(driver.getTitle(), "Log On or Create Your Account");
 
 	}
-
-	/*@Test
-	public void sucessfullyNavigatesToDemographicPage() {
-		// Arrange
-
-		// Act
-		SignInPage signinPage = new SignInPage(driver);
-		signinPage.navigatesToPINPage().clickToDisagree();
-
-		// Assert
-
-		Assert.assertEquals(driver.getTitle(), "Log On or Create Your Account");
-
-	}*/
 
 }
