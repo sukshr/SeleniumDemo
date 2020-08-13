@@ -17,21 +17,21 @@ public class TestPINMonthTest {
 	@Test
 	public void Enter_valid_data() {
 		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().monthdropdown().contirnuebtn();
+		getin.navigatesToPINPage().monthDropdown("June").contirnuebtn();
 
 	}
 
 	@Test
 	public void Enter_invalid_data() {
 		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().yeardropdown().contirnuebtn();
+		getin.navigatesToPINPage().yearDropdown("1990").contirnuebtn();
 
 	}
 
 	@Test
 	public void Enter_null_data() {
 		SignInPage getin = new SignInPage(driver);
-		getin.NavigatestoPINPage().datedropdown().contirnuebtn();
+		getin.navigatesToPINPage().dateDropdown("14").contirnuebtn();
 
 	}
 

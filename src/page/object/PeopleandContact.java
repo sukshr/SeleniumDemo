@@ -42,6 +42,7 @@ public PeopleandContact(WebDriver _driver) throws InterruptedException{
     PageFactory.initElements(driver, this);
 }
 
+//TODO: ALl methods name has to be pasclasCase
 public PeopleandContact firstaddressline(String fline) throws InterruptedException {
 	Thread.sleep(5000);
 	address.sendKeys(fline);
@@ -53,8 +54,8 @@ public PeopleandContact seconeaddressline(String Sline)  {
 	return this;
 
 }
-public PeopleandContact City(String cities)  {
-	cityaddress.sendKeys(cities);
+public PeopleandContact City(String city)  {
+	cityaddress.sendKeys(city);
 	return this;
 }
 public PeopleandContact Statedropdown()  {
@@ -62,21 +63,21 @@ public PeopleandContact Statedropdown()  {
 
 	return this;
 }
-public PeopleandContact Zipcode(String Zcode)  {
-	codezip.sendKeys(Zcode);
+public PeopleandContact Zipcode(String zCode)  {
+	codezip.sendKeys(zCode);
 	return this;
 }
 public PeopleandContact mailingaddress()  {
 	mailingadd.click();
 	return this;
 }
-public PeopleandContact language()  {
-	 new Select(householdlanguage).selectByVisibleText("English");
+public PeopleandContact language(String language)  {
+	 new Select(householdlanguage).selectByVisibleText(language);
 
 	return this;
 }
-public PeopleandContact writtencommunication()  {
-	 new Select(communication).selectByVisibleText("English");
+public PeopleandContact writtencommunication(String spokenLanguage)  {
+	 new Select(communication).selectByVisibleText(spokenLanguage);
 
 	return this;
 }

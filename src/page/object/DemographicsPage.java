@@ -12,134 +12,134 @@ public class DemographicsPage {
 	private WebDriver driver;
 
 	@FindBy(name = "ctl00$cphStepPageData$txtFirstName")
-	WebElement FirstName;
+	WebElement firstName;
 	@FindBy(id = "ctl00_cphStepPageData_txtLastName")
-	WebElement LastName;
+	WebElement lastName;
 	@FindBy(id = "ctl00_cphStepPageData_ddlSuffix")
-	WebElement dropdown;
+	WebElement dropDown;
 	@FindBy(id = "ctl00_cphStepPageData_dteBirthDate_ddlMonth")
-	WebElement monthdropdown;
+	WebElement monthdropDown;
 	@FindBy(id = "ctl00_cphStepPageData_dteBirthDate_ddlDay")
-	WebElement daydropdown;
+	WebElement daydropDown;
 	@FindBy(id = "ctl00_cphStepPageData_dteBirthDate_ddlYear")
-	WebElement yeardropdown;
+	WebElement yeardropDown;
 	@FindBy(id = "ctl00_cphStepPageData_ddlMaritalStatus")
-	WebElement maratialstatus;
+	WebElement maratialStatus;
 	@FindBy(id = "ctl00_cphStepPageData_rblGender_1")
 	WebElement gender;
 	@FindBy(id = "ctl00_cphStepPageData_rblPregnant_1")
 	WebElement pregnant;
 	@FindBy(id = "ctl00_cphStepPageData_cblSC_0")
-	WebElement checkboxes;
+	WebElement checkBoxes;
 	@FindBy(id = "ctl00_cphStepPageData_cblRace_1")
 	WebElement race;
 	@FindBy(id = "ctl00_cphStepPageData_rblTypeUSCitizen_0")
-	WebElement citizenshipstatus;
+	WebElement citizenshipStatus;
 	@FindBy(id = "ctl00_cphStepPageData_ddlUSDoc")
-	WebElement documentationtype;
+	WebElement documentationType;
 	@FindBy(id = "ctl00_cphStepPageData_rblLiveOkl_1")
 	WebElement residence;
 	@FindBy(id = "ctl00_cphStepPageData_txtSSN1")
-	WebElement ssnnumber;
+	WebElement ssnNumber;
 	@FindBy(id = "ctl00_cphStepPageData_lblNext")
-	WebElement nextbutton;
+	WebElement nextButton;
 	@FindBy(id = "ctl00_pnlValidatorSummary")
-	WebElement validationsummaryDemographics;
+	WebElement validationSummaryDemographics;
 
-	public DemographicsPage(WebDriver driver2) throws InterruptedException {
-		driver = driver2;
+	public DemographicsPage(WebDriver _driver) throws InterruptedException {
+		driver = _driver;
 		Thread.sleep(3000);
 		PageFactory.initElements(driver, this);
 
 	}
 
-	public DemographicsPage SetFName(String fName) {
-		FirstName.sendKeys(fName);
+	public DemographicsPage setFName(String fName) {
+		firstName.sendKeys(fName);
 		return this;
 	}
 
-	public DemographicsPage SetLName(String lName) {
-		LastName.sendKeys(lName);
+	public DemographicsPage setLName(String lName) {
+		lastName.sendKeys(lName);
 		return this;
 	}
 //TODO: make all the hardcoded values parameterized
-	public DemographicsPage SetSuffix() {
-		new Select(dropdown).selectByVisibleText("V");
+	public DemographicsPage setSuffix(String value) {
+		new Select(dropDown).selectByVisibleText(value);
 		return this;
 	}
 
-	public DemographicsPage Setmonth() {
-		new Select(monthdropdown).selectByVisibleText("June");
+	public DemographicsPage setMonth(String month) {
+		new Select(monthdropDown).selectByVisibleText(month);
 		return this;
 	}
 
-	public DemographicsPage Setday() {
-		new Select(daydropdown).selectByVisibleText("11");
+	public DemographicsPage setDay(String day) {
+		new Select(daydropDown).selectByVisibleText(day);
 		return this;
 	}
 
-	public DemographicsPage SetYear() {
-		new Select(yeardropdown).selectByVisibleText("1992");
+	public DemographicsPage setYear(String year) {
+		new Select(yeardropDown).selectByVisibleText(year);
 		return this;
 	}
 
-	public DemographicsPage SetMaratialStatus() {
-		new Select(maratialstatus).selectByVisibleText("Married, whether living together or involuntarily separated");
+	public DemographicsPage setMaratialStatus() {
+		new Select(maratialStatus).selectByVisibleText("Married, whether living together or involuntarily separated");
 		return this;
 	}
 
-	public DemographicsPage GenderButton() {
+	public DemographicsPage genderButton() {
 		gender.click();
 		return this;
 	}
 
-	public DemographicsPage PregnantButton() {
+	public DemographicsPage pregnantButton() {
 		pregnant.click();
 		return this;
 	}
 
-	public DemographicsPage RequestedBenefit() {
-		checkboxes.click();
+	public DemographicsPage requestedBenefit() {
+		checkBoxes.click();
 		return this;
 	}
 
-	public DemographicsPage RaceIdentity() {
+	public DemographicsPage raceIdentity() {
 		race.click();
 		return this;
 	}
 
-	public DemographicsPage CitizenIdentity() {
-		citizenshipstatus.click();
+	public DemographicsPage citizenIdentity() {
+		citizenshipStatus.click();
 		return this;
 	}
 
-	public DemographicsPage SetDcoumentationTypeAsUSCitizen() {
-		new Select(documentationtype).selectByVisibleText("U.S. Birth Certificate (Original or Certified Copy)");
+	public DemographicsPage setDcoumentationTypeAsUSCitizen() {
+		new Select(documentationType).selectByVisibleText("U.S. Birth Certificate (Original or Certified Copy)");
 		return this;
 	}
 
-	public DemographicsPage SetResidency() {
+	public DemographicsPage setResidency() {
 		residence.click();
 		return this;
 	}
 
-	public DemographicsPage SetSsn(String ssn) {
-		ssnnumber.sendKeys(ssn);
+	public DemographicsPage setSsn(String ssn) {
+		ssnNumber.sendKeys(ssn);
 		return this;
 	}
 
-	public PeopleandContact NextBtn() throws InterruptedException {
-		nextbutton.click();
+	public PeopleandContact nextBtn() throws InterruptedException {
+		nextButton.click();
 		return new PeopleandContact(driver);
 	}
 
-	public DemographicsPage NexBtnHasError() {
-		nextbutton.click();
+	public DemographicsPage nexBtnHasError() {
+		nextButton.click();
 		return this;
 	}
 
-	public String GetValidationText() {
-		return validationsummaryDemographics.getText();
+	public String getValidationText() {
+		return validationSummaryDemographics.getText();
 	}
 
 }

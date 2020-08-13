@@ -14,9 +14,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
 
-public class IAgreeTest {
+public class TestIAgree {
 	WebDriver driver;
-
 
 	@BeforeMethod
 	public void beforeMethod() {
@@ -32,63 +31,50 @@ public class IAgreeTest {
 	public void afterMethod() {
 		driver.quit();
 	}
-	
+
 	@Test()
-	public void Sucessfully_Navigates_To_Login_Page() {
-		// Arrange
+	public void sucessfullyNavigatesToLoginPage() {
 
-		// Act
-
-		// Assert
-		
-	 Assert.assertEquals(driver.getTitle(), "Log On or Create Your Account");
-		
+		Assert.assertEquals(driver.getTitle(), "Log On or Create Your Account");
 
 	}
+
 	@Test
-	public void Sucessfully_Navigates_DemographicsPage() throws InterruptedException {
+	public void sucessfullyNavigatesToDemographicsPage() throws InterruptedException {
+
+		SignInPage signinPage = new SignInPage(driver);
+		signinPage.navigateToIagreePage().clickToAgree();
+
+		Assert.assertEquals(driver.getTitle(), "Step 1 - People & Contacts");
+
+	}
+
+	@Test
+	public void sucessfullyNavigatesToLoginInPageAfterDisagree() {
 		// Arrange
 
 		// Act
 		SignInPage signinPage = new SignInPage(driver);
-		signinPage.NavigateToIagreePage().ClickToAgree();
+		signinPage.navigateToIagreePage().clickToDisagree();
 
 		// Assert
-		
-	 Assert.assertEquals(driver.getTitle(), "Step 1 - People & Contacts");
-		
+
+		Assert.assertEquals(driver.getTitle(), "Log On or Create Your Account");
+
 	}
-	
-	@Test
-	public void Sucessfully_Navigates_To_LoginInPage_After_Disagree() {
+
+	/*@Test
+	public void sucessfullyNavigatesToDemographicPage() {
 		// Arrange
 
 		// Act
 		SignInPage signinPage = new SignInPage(driver);
-		signinPage.NavigateToIagreePage().clickToDisagree();
+		signinPage.navigatesToPINPage().clickToDisagree();
 
 		// Assert
-		
-	 Assert.assertEquals(driver.getTitle(), "Log On or Create Your Account");
-		
-	}
-	@Test
-	public void Sucessfully_Navigates_To_demographicPage() {
-		// Arrange
 
-		// Act
-		SignInPage signinPage = new SignInPage(driver);
-		signinPage.NavigateToIagreePage().clickToDisagree();
+		Assert.assertEquals(driver.getTitle(), "Log On or Create Your Account");
 
-		// Assert
-		
-	 Assert.assertEquals(driver.getTitle(), "Log On or Create Your Account");
-		
-	 driver.quit();
-	}	
-	
+	}*/
+
 }
-	
-
-	
-	

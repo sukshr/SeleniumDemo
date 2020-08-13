@@ -16,7 +16,7 @@ public class SignInPage {
 	@FindBy(linkText = "create a new account")
 	WebElement ele;
 	@FindBy(id = "ctl00_cphStepPageData_lblOK")
-	WebElement LogOnBtn;
+	WebElement logOnBtn;
 	
 
 	public SignInPage(WebDriver _driver) {
@@ -24,29 +24,29 @@ public class SignInPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public IAgreePage NavigateToIagreePage() {
+	public IAgreePage navigateToIagreePage() {
 		ele.click();
 		return new IAgreePage(driver);
 
 	}
 
-	public PINPage NavigatestoPINPage() {
+	public PINPage navigatesToPINPage() {
 		WebElement pinaccount = driver.findElement(By.linkText("create an account using your PIN"));
 		pinaccount.click();
 		return new PINPage(driver);
 	}
 
-	public SignInPage EnterUsername(String name) {
+	public SignInPage enterUsername(String name) {
 		username.sendKeys(name);
 		return this;
 	}
 
-	public SignInPage EnterPassword(String pass) {
+	public SignInPage enterPassword(String pass) {
 		password.sendKeys(pass);
 		return this;
 	}
-	public void ClickTOLoGON() throws InterruptedException {
+	public void clickTOLoGON() throws InterruptedException {
 		Thread.sleep(5000);
-		LogOnBtn.click();
+		logOnBtn.click();
 	}
 }

@@ -21,7 +21,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
 
-public class LoginPageTEST {
+public class TestLoginPage {
 	WebDriver driver;
 
 	@FindBy(id = "ctl00_cphStepPageData_lblRegistrationCOde")
@@ -31,14 +31,11 @@ public class LoginPageTEST {
 	
 	@Test
 
-	public void Enter_Valid_UserName_Password(String username, String password) throws InterruptedException {
+	public void enterValidUserNamePassword(String username, String password) throws InterruptedException {
 		SignInPage signinPage = new SignInPage(driver);
-		signinPage.EnterUsername(username).EnterPassword(password).ClickTOLoGON();
+		signinPage.enterUsername(username).enterPassword(password).clickTOLoGON();
 
-		/*
-		 * String validation = registrationId.getText();
-		 * Assert.assertEquals("Registration code:", "validation");
-		 */
+		
 	}
 
 	@BeforeMethod
@@ -53,14 +50,9 @@ public class LoginPageTEST {
 
 	@AfterMethod
 	public void afterMethod() {
+		driver.quit();
 	}
 
-	@BeforeTest
-	public void beforeTest() {
-	}
-
-	@AfterTest
-	public void afterTest() {
-	}
+	
 
 }

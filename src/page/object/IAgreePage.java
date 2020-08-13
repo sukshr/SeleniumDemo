@@ -12,19 +12,23 @@ public class IAgreePage {
 	@FindBy(id = "ctl00_cphStepPageData_rblAgree_1")
 	WebElement clickDisagree;
 	@FindBy(id = "ctl00_cphStepPageData_btnExit")
-	WebElement exitbtn;
+	WebElement exitBtn;
+	@FindBy(id = "ctl00_cphStepPageData_rblAgree_0")
+	WebElement clickAgree;
+	@FindBy(id = "ctl00_cphStepPageData_lblStart")
+	WebElement clickSubmit;
 
 	public IAgreePage(WebDriver _driver) {
 		driver = _driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	public DemographicsPage ClickToAgree() throws InterruptedException {
+	public DemographicsPage clickToAgree() throws InterruptedException {
 		Thread.sleep(3000);
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		driver.findElement(By.id("ctl00_cphStepPageData_rblAgree_0")).click();
+		clickAgree.click();
 		Thread.sleep(3000);
-		driver.findElement(By.id("ctl00_cphStepPageData_lblStart")).click();
+		clickSubmit.click();
 
 		return new DemographicsPage(driver);
 	}
@@ -32,9 +36,9 @@ public class IAgreePage {
 	public SignInPage clickToDisagree() {
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		clickDisagree.click();
-		exitbtn.click();
+		exitBtn.click();
 		return new SignInPage(driver);
-		
+
 	}
 
 }

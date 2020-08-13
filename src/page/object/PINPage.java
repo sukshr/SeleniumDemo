@@ -21,37 +21,40 @@ public class PINPage {
 	WebElement Year;
 	@FindBy(id = "ctl00_cphStepPageData_lblContinue")
 	WebElement Continue;
+	@FindBy(id = "ctl00_pnlValidatorSummary")
+	WebElement validationsummary; 
 
 	public PINPage(WebDriver _driver) {
 		driver = _driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	public PINPage pinnumber(String number) {
+	public PINPage pinNumber(String number) {
 		PINNumber.sendKeys(number);
 		return this;
 	}
 
-	public PINPage ssnnumber(String nbr) {
+	public PINPage ssnNumber(String nbr) {
 		SSNNumber.sendKeys(nbr);
 		return this;
 	}
+	
 
-	public PINPage monthdropdown() {
+	public PINPage monthDropdown(String month) {
 		Select dropdown = new Select(Month);
-		dropdown.selectByVisibleText("July");
+		dropdown.selectByVisibleText(month);
 		return this;
 	}
 
-	public PINPage datedropdown() {
+	public PINPage dateDropdown(String date) {
 		Select ddropdown = new Select(Date);
-		ddropdown.selectByVisibleText("11");
+		ddropdown.selectByVisibleText(date);
 		return this;
 	}
 
-	public PINPage yeardropdown() {
+	public PINPage yearDropdown(String year) {
 		Select ydropdown = new Select(Year);
-		ydropdown.selectByVisibleText("2018");
+		ydropdown.selectByVisibleText(year);
 		return this;
 	}
 
@@ -59,5 +62,12 @@ public class PINPage {
 		Continue.click();
 	
 
+	}
+	public PINPage continuebtnHasError() {
+		Continue.click();
+		return this;
+	}
+	public String getValidationErrorText() {
+		return validationsummary.getText();
 	}
 }
